@@ -1,0 +1,51 @@
+-------------------------------------
+Organization [Table]
+Id (alternate pk)
+Code (alternate pk)
+Name
+Description
+CreatedOn
+CreatedBy
+LastModifiedOn
+LastModifiedBy
+
+-------------------------------------
+ApplicationProperty [Table]
+Id (pk)
+ApplicationId (fk)
+OrganizationCode (fk)
+PropertyName
+PropertyDescription
+PropertyValue
+PropertyDefaultValue
+CreatedOn
+CreatedBy
+LastModifiedOn
+LastModifiedBy
+
+-------------------------------------
+Application [Table]
+Id (id)
+Name
+Description
+CreatedOn
+CreatedBy
+LastModifiedOn
+LastModifiedBy
+
+-------------------------------------
+SELECT * FROM STUDENT_COURSE sc
+left outer join student s on sc.student_id = s.id
+left outer join course c on sc.course_id = c.id;
+
+-------------------------------------
+Step 52 
+Section 10 - Lecture 102
+
+The unit test jpql_students_with_passports_in_a_certain_pattern() should be marked @Transactional or the Student annotation of passport should be changed from
+@OneToOne(fetch=FetchType.LAZY)
+to
+@OneToOne(fetch=FetchType.EAGER)
+or 
+@OneToOne /*default fetch is EAGER for 1:1 relationships
+*/
